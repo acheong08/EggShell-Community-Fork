@@ -8,4 +8,4 @@ class command:
     def run(self, session, cmd_data):
         if not cmd_data['args']:
             print(self.usage)
-        print(session.send_command(cmd_data))
+        session.send_command(cmd_data)
