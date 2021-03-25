@@ -64,4 +64,5 @@ cydia-package:
 	@dpkg -b .cydia-package eggshell.deb
 
 all: ios macos iospro
-.PHONY: ios macos iospro
+	
+.PHONY: all
