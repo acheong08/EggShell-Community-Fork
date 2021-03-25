@@ -9,7 +9,7 @@ ARCHS 				= arm64 arm64e
 esplios_FILES 							= 	src/main.mm src/espl.m
 esplios_FRAMEWORKS 						= 	Foundation Security AudioToolbox CoreFoundation MediaPlayer UIKit 
 esplios_PRIVATE_FRAMEWORKS 				= 	AppSupport SpringBoardServices IOSurface 
-esplios_CFLAGS 							= 	-fobjc-arc -Wno-unused -I./src/include -I/Users/rpwnage/theos/sdks/iPhoneOS$(SDKVERSION).sdk/usr/include
+esplios_CFLAGS 							= 	-fobjc-arc -Wno-unused -I./src/include -I/Users/rpwnage/theos/sdks/iPhoneOS$(SDKVERSION).sdk/usr/include -Wno-error=deprecated-declarations
 esplios_OBJ_FILES						=	lib/libssl.a lib/libcrypto.a 
 esplios_LDFLAGS							=	-L./lib -lssl -lcrypto -w
 esplios_LIBRARIES						=	ssl crypto

