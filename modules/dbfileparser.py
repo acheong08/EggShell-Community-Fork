@@ -34,7 +34,7 @@ def parse_safari_history_db(safari_history_db : str):
         del item["lookup_id"]
     return result_temp_dict
 
-def parse_whatsapp_chonvo(chat_storage_db : str, partner : str):
+def parse_whatsapp_convo(chat_storage_db : str, partner : str):
     result_arr = {
         "partner": "",
         "partner_id": partner,
@@ -72,7 +72,10 @@ def parse_whatsapp_chonvo(chat_storage_db : str, partner : str):
         FROM ZWACHATSESSION
         WHERE ZCONTACTJID like "%{partner}%"
     '''.format(partner=partner))
-    result_arr["partner"] = [str(username[0]) for username in cursor.fetchall()][0]
+    try:
+        result_arr["partner"] = [str(username[0]) for username in cursor.fetchall()][0]
+    except IndexError:
+        result_arr["success"] = False
     return result_arr
 
 def parse_safari_bookmarks_db(safar_bookmarks_db : str):

@@ -10,7 +10,7 @@ def print_formatted_whatsapp(chat_storage : dict):
                 color=selected_color,
                 date=date,
                 person=sender,
-                text=(message["text"]).replace("\n", " ")
+                text=(message["text"]).replace("\n\n", "\n").replace("\n", ("\n" + (" " * (len(date) + 3))))
             ))
          
 def print_formatted_convo(convo : dict):
