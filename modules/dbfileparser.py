@@ -64,7 +64,7 @@ def parse_chat_convo(sms_db : str, partner : str, imessage : bool):
     Returns:
         dict: Dictionary containing the chat data
     """
-
+    partner = partner.replace(" ", "")
     db = sqlite3.connect(sms_db)
     result_arr = {
         "protocol": "{}".format('iMessage' if imessage == True else 'SMS'),

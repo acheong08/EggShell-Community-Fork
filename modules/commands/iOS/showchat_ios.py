@@ -4,7 +4,7 @@ class command:
     def __init__(self):
         self.name = "showchat"
         self.description = "Print the contents of a iMessage/SMS conversation"
-        self.usage = "Usage: showchat imsg/sms"
+        self.usage = "Usage: showchat <imsg/sms> <phonenumber/email (include country suffix)>"
         self.category = "data_extraction"
 
     def run(self, session, cmd_data):
