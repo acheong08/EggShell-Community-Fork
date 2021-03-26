@@ -7,7 +7,7 @@
 
 
 ## About this fork
-This is the official community fork for the abandoned eggshell project. The current project is highly outdated, but if you have issues or want to contribute to EggShell feel free to do so here, instead of the original repository.
+This is the official community fork for the abandoned eggshell project. The current project is updated to work for iOS 11+, but if you have issues or want to contribute to EggShell feel free to do so here, instead of the original repository.
 
 ## About EggShell
 The original EggShell tool was a post exploitation surveillance tool written in Python. It gives you a command line session with extra functionality between you and a target machine. EggShell gives you the power and convenience of uploading/downloading files, tab completion, taking pictures, location tracking, shell command execution, persistence, escalating privileges, password retrieval, and much more.  This is project is a proof of concept, intended for use on machines you own.
@@ -43,13 +43,9 @@ Both iOS and macOS payloads have picture taking capability. The picture command 
 
 ### Tab Completion
 Similar to most command line interfaces, EggShell supports tab completion.  When you start typing the path to a directory or filename, we can complete the rest of the path using the tab key.
-
-## Multihandler
+### Multihandler
 The Multihandler option lets us handle multiple sessions.  We can choose to interact with different devices while listening for new connections in the background.  
 Similar to the session interface, we can type "help" to show Multihandler commands
-
-## Featured
-Featured in EverythingApplePro's video demonstrating an iOS 9.3.3 Webkit vulnerability used to run EggShell
 
 ## Special Thanks
 - Linus Yang / Ryley Angus for the iOS Python package
