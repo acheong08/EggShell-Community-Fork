@@ -35,6 +35,7 @@ def parse_safari_history_db(safari_history_db : str):
     return result_temp_dict
 
 def parse_whatsapp_convo(chat_storage_db : str, partner : str):
+    partner = partner.replace(" ", "").replace("+", "")
     result_arr = {
         "partner": "",
         "partner_id": partner,
