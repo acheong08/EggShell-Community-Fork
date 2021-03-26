@@ -1,8 +1,13 @@
 #!/usr/bin/python
 from modules import server
 from modules import helper as h
-import sys, os
+import sys, os, subprocess
 
+# Getting local version from git
+try:
+    githash = "Version {}".format(subprocess.check_output(["git", "rev-parse", "--short", "HEAD"]).decode().rstrip())
+except FileNotFoundError:
+    githash = "Stable release"
 
 #banner
 class EggShell:
@@ -42,7 +47,7 @@ class EggShell:
                         /  \  '-.\XXXXX/
                    rpw  \__|----' `""\"`
 
-            """+h.WHITE+"\nCommunity Fork: 1.0.0  -  Stable Release\n"+h.ENDC
+            """+h.WHITE+"\nCommunity Fork: 1.0.0  - "+githash+"\n"+h.ENDC
         self.main_menu_text = h.WHITE+"-"*40+"\n"+"""Menu:\n
                 1): Start Server
                 2): Start MultiHandler
