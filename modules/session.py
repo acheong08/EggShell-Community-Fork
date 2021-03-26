@@ -16,6 +16,7 @@ class Session:
     def __init__(self, server, conn, device_info):
         self.server = server
         self.conn = conn
+        self.sms_fetched = False
         self.username = device_info['username'].encode("utf-8")
         self.hostname = device_info['hostname'].encode("utf-8")
         self.type = device_info['type']

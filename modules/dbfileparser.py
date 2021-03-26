@@ -69,6 +69,7 @@ def parse_chat_convo(sms_db : str, partner : str, imessage : bool):
     result_arr = {
         "protocol": "{}".format('iMessage' if imessage == True else 'SMS'),
         "partner": partner,
+        "success": True,
         "data": []
     }
     db.row_factory = sqlite3.Row
@@ -78,7 +79,11 @@ def parse_chat_convo(sms_db : str, partner : str, imessage : bool):
         FROM chat
         WHERE guid LIKE '{protocol};%;{partner}' 
         '''.format(partner=partner, protocol=('iMessage' if imessage == True else 'SMS')))
-    rowid_chat = list(map(dict,cursor.fetchall()))[0]["ROWID"]
+    try:
+        rowid_chat = list(map(dict,cursor.fetchall()))[0]["ROWID"]
+    except IndexError:
+        result_arr["success"] = False
+        return result_arr
     cursor.execute('''SELECT
             message_id
         FROM chat_message_join
