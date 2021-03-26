@@ -26,3 +26,4 @@ resources/esplmacos
 .vscode
 resources/esplios
 resources/esplmacos
+modules/debug
