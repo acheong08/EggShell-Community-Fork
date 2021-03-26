@@ -17,8 +17,7 @@ class command:
         if session.sms_fetched == False:
             modules.helper.info_general("Dumping {type} conversation with {partner}".format(
                 type = ("iMessage" if chat_type == "imsg" else "SMS"),
-                partner = chat_partner
-            ))
+                partner = chat_partner))
             modules.commands.iOS.getsms_ios.command.run(self, session, cmd_data)
         chat_convo_extracted = modules.dbfileparser.parse_chat_convo("downloads/sms.db", chat_partner, (True if chat_type == "imsg" else False))
         if chat_convo_extracted["success"] == True:

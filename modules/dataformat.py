@@ -1,4 +1,4 @@
-import datetime, modules.helper
+import datetime, modules.helper, os
 
 def print_formatted_convo(convo : dict):
     '''Prints a formatted and readable dumped sms/imessage conversation'''
@@ -13,3 +13,13 @@ def print_formatted_convo(convo : dict):
                 text=(message["text"]).replace("\n", " ")
             ))
          
+def print_formatted_history(history : dict):
+    '''Prints a formatted and readable dumped safari history'''
+    rows, cols = os.popen('stty size', 'r').read().split()
+    for history_item in history:
+        formatted_p = str("{:^12.10s}| {:<" + str((int(cols) - 12) - 2) + "." + str((int(cols) - 12) - 2) + "s}")
+        print(formatted_p.format(
+            history_item["date"],
+            history_item["details"]["url"],
+            "eee"
+        ))

@@ -28,7 +28,7 @@ def parse_safari_history_db(safari_history_db: str):
             FROM history_items
             WHERE id = {item_id}'''.format(item_id=item["lookup_id"]))
         current_row_dict = list(map(dict,cursor.fetchall()))
-        item["details"] = current_row_dict
+        item["details"] = current_row_dict[0]
         del item["lookup_id"]
     return result_temp_dict
 
