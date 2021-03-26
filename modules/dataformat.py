@@ -1,5 +1,18 @@
 import datetime, modules.helper, os
 
+def print_formatted_whatsapp(chat_storage : dict):
+    '''Prints a formatted and readable dumped whatsapp conversation'''
+    for message in chat_storage['data']:
+        selected_color = modules.helper.RED if message["is_from_me"] == 1 else modules.helper.CYAN
+        sender = chat_storage["partner"] if message["is_from_me"] == False else "Target"
+        date = datetime.datetime.fromtimestamp((message["timestamp"]) + 978307200).strftime('%Y-%m-%d %H:%M:%S')
+        print(("{color}[{date}] {person}: {text} " + modules.helper.ENDC).format(
+                color=selected_color,
+                date=date,
+                person=sender,
+                text=(message["text"]).replace("\n", " ")
+            ))
+         
 def print_formatted_convo(convo : dict):
     '''Prints a formatted and readable dumped sms/imessage conversation'''
     for message in convo['data']:
