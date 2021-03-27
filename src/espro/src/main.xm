@@ -1,5 +1,6 @@
 #import "header.h"
 #import <AppSupport/CPDistributedMessagingCenter.h>
+#import <UIKit/UIKit.h>
 
 %hook SpringBoard
 
@@ -119,6 +120,14 @@ static SpringBoard *__strong sharedInstance;
 }
 %end
 
+%hook CCUISensorStatusView
+- (void)setDisplayingSensorStatus:(BOOL)arg1  { %orig(NO); }
+- (BOOL)isDisplayingSensorStatus { return NO; }
+%end
+
+// %hook CCUISensorActivityData
+// - (void)setDisplayName:(NSString *)arg1  { %orig(@"EggShell running"); }
+// %end
 
 //TODO: Fix
 /*
