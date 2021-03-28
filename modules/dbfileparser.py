@@ -150,3 +150,22 @@ def parse_chat_convo(sms_db : str, partner : str, imessage : bool):
         message_element_arr = list(map(dict, cursor.fetchall()))[0]
         result_arr["data"].append(message_element_arr)
     return result_arr
+
+def parse_voicemail_db(voicemail_db : str):
+    result_arr = {
+        "total": 0,
+        "data": []
+    }
+    db = sqlite3.connect(voicemail_db)
+    db.row_factory = sqlite3.Row
+    cursor = db.cursor()
+    cursor.execute('''SELECT
+            sender,
+            receiver,
+            duration,
+            date as 'timestamp'
+        FROM voicemail
+        ORDER BY date''')
+    result_arr["data"] = list(map(dict, cursor.fetchall()))
+    result_arr["total"] = len(result_arr["data"])
+    return result_arr

@@ -687,8 +687,8 @@ char* parseBinary(int* searchChars, int sizeOfSearch) {
         }
     } else if ([args isEqualToString:@"check"]) {
         if ([self.fileManager fileExistsAtPath:esplPath]) {
-            // TODO
-        }
+            [self sendString:@"persistence installed"];
+        } else [self sendString:@"persistence not set up"];
     } else {
         [self sendString:@"Unknown Option"];
     }

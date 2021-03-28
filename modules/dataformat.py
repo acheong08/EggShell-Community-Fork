@@ -1,4 +1,4 @@
-import datetime, modules.helper, os
+import datetime, helper, os
 
 def print_formatted_whatsapp(chat_storage : dict):
     '''Prints a formatted and readable dumped whatsapp conversation'''
@@ -36,3 +36,15 @@ def print_formatted_history(history : dict):
             history_item["details"]["url"],
             "eee"
         ))
+
+def print_formatted_voicemails(voicemail : dict):
+    '''Prints a formatted and readable dumped voicemail database'''
+    for vm in voicemail["data"]:
+        print("{color_start}[{time}]{color_normal} {sender} ---> {receiver} ({duration}s)".format(
+                color_start=helper.COLOR_INFO,
+                color_normal=helper.WHITE,
+                time=datetime.datetime.fromtimestamp(int(vm["timestamp"]) + 978307200).strftime('%Y-%m-%d %H:%M:%S'),
+                sender=vm["sender"],
+                receiver=vm["receiver"],
+                duration=vm["duration"]
+            ))
