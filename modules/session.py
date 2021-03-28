@@ -17,6 +17,7 @@ class Session:
         self.server = server
         self.conn = conn
         self.sms_fetched = False
+        self.vm_fetched = False
         self.wa_fetched = False
         self.username = device_info['username'].encode("utf-8")
         self.hostname = device_info['hostname'].encode("utf-8")
