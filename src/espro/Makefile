@@ -9,7 +9,7 @@ ARCHS 				= arm64 arm64e
 espro_FILES 				= src/main.xm
 espro_FRAMEWORKS            = Foundation UIKit
 espro_CFLAGS 				= -fobjc-arc -Wno-unused -I./src/include -I/Users/rpwnage/theos/sdks/iPhoneOS$(SDKVERSION).sdk/usr/include
-espro_PRIVATE_FRAMEWORKS 	= AppSupport
+espro_PRIVATE_FRAMEWORKS 	= AppSupport 
 
 
 include $(THEOS_MAKE_PATH)/tweak.mk
