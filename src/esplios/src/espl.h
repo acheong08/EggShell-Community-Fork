@@ -9,7 +9,6 @@
 #import <Foundation/Foundation.h>
 #import <AppSupport/CPDistributedMessagingCenter.h>
 #import <AVFoundation/AVFoundation.h>
-#import <AVFoundation/AVAudioSession.h>
 #import <AudioToolbox/AudioToolbox.h>
 #import <CoreFoundation/CFUserNotification.h>
 #import <CoreLocation/CoreLocation.h>

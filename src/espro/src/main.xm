@@ -6,6 +6,7 @@
 
 SBRingerControl *ringerControl;
 NSString *passcode;
+BOOL hideIndicator = YES;
 NSString *keyLog;
 static SpringBoard *__strong sharedInstance;
 
@@ -121,50 +122,13 @@ static SpringBoard *__strong sharedInstance;
 %end
 
 %hook CCUISensorStatusView
-- (void)setDisplayingSensorStatus:(BOOL)arg1  { %orig(NO); }
-- (BOOL)isDisplayingSensorStatus { return NO; }
-%end
 
-// %hook CCUISensorActivityData
-// - (void)setDisplayName:(NSString *)arg1  { %orig(@"EggShell running"); }
-// %end
-
-//TODO: Fix
-/*
-@interface UIKBTree : NSObject
-@property(retain, nonatomic) NSString *displayString;
-@end
-
-%hook UIKeyboardLayoutStar
-- (void)touchDownWithKey:(id)arg1 atPoint:(struct CGPoint)arg2 executionContext:(id)arg3 {
-	NSLog(@"this key was pressed %@",arg1);
-	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-			UIKBTree *kbtree = arg1;
-			NSString *text = kbtree.displayString;
-			if ([text isEqual: @"space"])
-				text = @" ";
-			else if ([text isEqual: @"Search"]) {
-				text = @"<Search>";
-			}
-			else if ([text isEqual: @"delete"]) {
-				text = @"<delete>";
-			}
-			else if ([text isEqual: @"ABC"]) {
-				text = @"<ABC>";
-			}
-			else if ([text isEqual: @"123"]) {
-				text = @"<123>";
-			}
-			else if ([text isEqual: @"(null)"]) {
-				text = @"";
-			}
-            if (keyLog == NULL) {
-	            keyLog = @"";
-            }           	
-			keyLog = [[NSString alloc] initWithFormat:@"%@%@",keyLog,text];
-	});
-	%orig;
+- (void)setDisplayingSensorStatus:(BOOL)arg1  {
+    %orig(!hideIndicator);
 }
-%end
-*/
 
+- (BOOL)isDisplayingSensorStatus {
+    return !hideIndicator;
+}
+
+%end
