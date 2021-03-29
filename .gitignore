@@ -21,9 +21,5 @@ xcuserdata
 !xcshareddata
 **/*.deb
 .cydia-package
-resources/esplios
-resources/esplmacos
 .vscode
-resources/esplios
-resources/esplmacos
 modules/debug
