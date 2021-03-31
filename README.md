@@ -15,6 +15,10 @@ The original EggShell tool was a post exploitation surveillance tool written in 
 ## Getting Started
 - Python 3.0 or higher
 
+## Building
+- Theos and $THEOS set
+- iOS 13 SDKs in $THEOS/sdks
+
 ### macOS/Linux Installation
 ```sh
 git clone https://github.com/rpwnage/eggshell-community-fork egshell
