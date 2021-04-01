@@ -26,8 +26,14 @@ def print_formatted_convo(convo : dict):
                 text=(message["text"]).replace("\n", " ")
             ))
          
+def print_formatted_bookmarks(bookmarks : dict):
+    '''Prints a formatted and readable dumped safari bookmark list'''
+    # TODO: Fix this function to actually format everythings
+    for bookmark in bookmarks:
+        print(str(bookmark))
+
 def print_formatted_history(history : dict):
-    '''Prints a formatted and readable dumped safari history'''
+    '''Prints a formatted and readable dumped safari webhistory'''
     rows, cols = os.popen('stty size', 'r').read().split()
     for history_item in history:
         formatted_p = str("{:^12.10s}| {:<" + str((int(cols) - 12) - 2) + "." + str((int(cols) - 12) - 2) + "s}")

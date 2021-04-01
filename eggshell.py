@@ -156,7 +156,6 @@ class EggShell:
                         self.menu()
                 except KeyboardInterrupt:
                     continue
-                    # TODO: quit socket listener
             except KeyboardInterrupt:
                 print("\nBye!")
                 exit()
