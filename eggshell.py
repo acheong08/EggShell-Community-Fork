@@ -1,7 +1,7 @@
 #!/usr/bin/python
 from modules import server
 from modules import helper as h
-import sys, os, subprocess
+import sys, os, subprocess, socket
 
 # Getting local version from git
 try:
