@@ -20,10 +20,14 @@ The original EggShell tool was a post exploitation surveillance tool written in 
 - iOS 13 SDKs in $THEOS/sdks
 
 ### macOS/Linux Installation
+
 ```sh
-git clone https://github.com/rpwnage/eggshell-community-fork egshell
-cd eggshell
-python3 eggshell.py
+git clone https://github.com/rpwnage/eggshell-community-fork eggshell && cd eggshell && ./run.sh
+
+OR
+
+```sh
+git clone https://github.com/rpwnage/eggshell-community-fork eggshell && cd eggshell && python3 eggshell.py
 ```
 
 ## Creating Payloads
