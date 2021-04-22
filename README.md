@@ -23,7 +23,7 @@ The original EggShell tool was a post exploitation surveillance tool written in 
 
 Using `git clone`:
 ```sh
-git clone https://github.com/rpwnage/eggshell-community-fork eggshell && cd eggshell && python3 run.py
+git clone https://github.com/rpwnage/eggshell-community-fork eggshell && cd eggshell && python3 eggshell.py
 ```
 
 Using the `github.com` website:
@@ -33,7 +33,7 @@ Using the `github.com` website:
 2. Extract it to the location of your choice, preferably somewhere easy to access, such as your desktop.
 3. Open your terminal. 
 4. Use "cd" to change your working directory to the eggshell folder.
-5. Type "python3 run.py", and you're on your way!
+5. Type "python3 eggshell.py", and you're on your way!
 ```
 
 ## Creating Payloads
