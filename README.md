@@ -21,13 +21,23 @@ The original EggShell tool was a post exploitation surveillance tool written in 
 
 ### macOS/Linux Installation
 
+Using `git clone`:
 ```sh
 git clone https://github.com/rpwnage/eggshell-community-fork eggshell && cd eggshell && ./run.sh
 
 OR
 
-```sh
 git clone https://github.com/rpwnage/eggshell-community-fork eggshell && cd eggshell && python3 eggshell.py
+```
+
+Using the `github.com` website:
+
+```
+1. Download the project using the "Download Zip" file at the top of this page.
+2. Extract it to the location of your choice, preferably somewhere easy to access, such as your desktop.
+3. Open your terminal. 
+4. Use "cd" to change your working directory to the eggshell folder.
+5. Type "python3 eggshell.py" or "./run.sh", the choice is up to you!
 ```
 
 ## Creating Payloads
