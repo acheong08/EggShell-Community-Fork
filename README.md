@@ -45,9 +45,9 @@ Eggshell payloads are executed on the target machine. The payload first sends ov
 Selecting bash from the payload menu will give us a 1 liner that establishes an eggshell session upon execution on the target machine.
 
 ### Teensy macOS (USB injection)
-Teensy is a USB development board that can be programmed with the Arduino ide.  It emulates usb keyboard strokes extremely fast and can inject the EggShell payload just in a few seconds.
-Selecting teensy will give us an arduino based payload for the teensy board.
-After uploading to the teensy, we can use the device to plug into a macOS usb port.  Once connected to a computer, it will automatically emulate the keystrokes needed to execute a payload.
+Teensy is a USB development board that can be programmed with the Arduino IDE. It emulates usb keyboard strokes extremely fast and can inject the EggShell payload just in a few seconds.
+Selecting Teensy will give us an Arduino based payload for the Teensy board.
+After uploading to the Teensy, we can plug the device into a macOS usb port. Once connected to a computer, it will automatically emulate the keystrokes needed to execute a payload.
 
 
 ## Usage
