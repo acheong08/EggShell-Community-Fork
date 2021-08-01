@@ -49,7 +49,7 @@ class EggShell:
                    rpw  \__|----' `""\"`
 
             """+h.WHITE+"\nCommunity Fork: 1.0.0  - "+githash+"\n"+h.ENDC
-        self.main_menu_text = h.WHITE+"-"*40+"\n"+"Your computer hostname is: " + socket.gethostname() + "\n" + "Your computer's IP Address is: " + socket.gethostbyname(hostname) + "\n"
+        self.main_menu_text = h.WHITE+"-"*40+"\n"+"Your computer hostname is: " + socket.gethostname() + "\n" + "Your computer's IP Address is: " + socket.gethostbyname(socket.gethostname()) + "\n"
         self.main_menu_text = h.WHITE+"-"*40+"\n"+"""Menu:\n
                 1): Start Server
                 2): Start MultiHandler
